@@ -1,6 +1,5 @@
 import {defineConfig, HmrOptions, loadEnv, ServerOptions, UserConfig} from 'vite'
 import laravel from 'laravel-vite-plugin'
-// import vuePlugin from "@vitejs/plugin-vue"
 import * as fs from "fs"
 
 export default defineConfig(({ mode }) => {
@@ -40,7 +39,6 @@ export default defineConfig(({ mode }) => {
 				],
 			refresh: true
 		}),
-		// vuePlugin(),
 	]
 
 	return viteConfig

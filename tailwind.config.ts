@@ -4,7 +4,10 @@ import typography from '@tailwindcss/typography'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./src/**/*.{html,js}"],
+    content: [
+        './resources/**/*.blade.php',
+        './vendor/filament/**/*.blade.php',
+    ],
     theme: {
         extend: {
             colors: {
@@ -19,4 +22,6 @@ module.exports = {
         forms,
         typography,
     ],
+
+    darkMode: 'class',
 }

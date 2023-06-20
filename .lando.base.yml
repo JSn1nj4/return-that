@@ -1,4 +1,4 @@
-name: return-that
+name: returnthat
 recipe: laravel
 config:
   php: '8.2'
@@ -7,9 +7,9 @@ config:
 #  database: mysql:8.0
 proxy:
   mail:
-    - mail.return-that.lndo.site
+    - mail.returnthat.lndo.site
 #  pma:
-#    - pma.return-that.lndo.site
+#    - pma.returnthat.lndo.site
 services:
   appserver:
     build_as_root:
@@ -27,9 +27,9 @@ services:
       php: /app/config/local/php.ini
     ssl: true
     ports:
-      - 24695
-      - 24696
-      - 24697
+      - '24695:24695'
+      - '24696:24696'
+      - '24697:24697'
   mail:
     type: mailhog
     ssl: true

@@ -33,10 +33,10 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextInputColumn::make('name')
+                Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextInputColumn::make('email')
+                Tables\Columns\TextColumn::make('email')
                     ->searchable(),
                 // todo: household
             ])

@@ -22,7 +22,11 @@ class UserResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name'),
                 Forms\Components\TextInput::make('email'),
-                // todo: change password
+                Forms\Components\TextInput::make('password')
+                    ->password()
+                    ->dehydrateStateUsing(static fn (string $state): string => $state)
+                    ->dehydrated(static fn (string|null $state): bool => filled($state))
+                    ->required(static fn (string $operation): bool => $operation === 'create'),
             ]);
     }
 

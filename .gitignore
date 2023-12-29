@@ -38,3 +38,7 @@ yarn-error.log
 
 # OS files
 .directory
+
+/caddy
+frankenphp
+frankenphp-worker.php

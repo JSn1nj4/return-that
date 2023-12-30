@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="start-octane" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/artisan" scriptParameters="octane:start --host=$APP_DOMAIN">
+    <option name="envFilePaths">
+      <list>
+        <option value="$PROJECT_DIR$/.env" />
+      </list>
+    </option>
+    <method v="2" />
+  </configuration>
+</component>

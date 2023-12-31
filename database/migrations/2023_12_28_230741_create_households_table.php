@@ -14,11 +14,6 @@ return new class extends Migration
         Schema::create('households', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('address_line_1')->nullable();
-            $table->string('address_line_2')->nullable();
-            $table->string('city')->nullable();
-            $table->char('state', 2)->nullable();
-            $table->string('zip')->nullable();
             $table->timestamps();
         });
     }

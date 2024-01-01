@@ -39,7 +39,7 @@ class UserResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('household.name')
+                Tables\Columns\TextColumn::make('household.nickname')
                     ->searchable(),
             ])
             ->filters([

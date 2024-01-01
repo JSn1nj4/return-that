@@ -29,7 +29,7 @@ class HouseholdResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('nickname'),
                 Tables\Columns\TextColumn::make('users_count')
                     ->counts('users')
                     ->label('Members'),

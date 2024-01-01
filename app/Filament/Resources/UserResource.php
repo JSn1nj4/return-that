@@ -14,7 +14,7 @@ class UserResource extends Resource
 {
     protected static string|null $model = User::class;
 
-    protected static string|null $navigationIcon = 'heroicon-o-collection';
+    protected static string|null $navigationIcon = 'heroicon-o-users';
 
     public static function form(Form $form): Form
     {
@@ -26,7 +26,7 @@ class UserResource extends Resource
                     ->password()
                     ->dehydrateStateUsing(static fn (string $state): string => $state)
                     ->dehydrated(static fn (string|null $state): bool => filled($state))
-                    ->required(static fn (string $operation): bool => $operation === 'create'),
+                    ->required(static fn (string|null $operation = null): bool => $operation === 'create'),
             ]);
     }
 
@@ -39,7 +39,8 @@ class UserResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                // todo: household
+                Tables\Columns\TextColumn::make('household.name')
+                    ->searchable(),
             ])
             ->filters([
                 //

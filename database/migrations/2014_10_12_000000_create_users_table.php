@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->foreignIdFor(\App\Models\Household::class)->nullable();
+            $table->foreignIdFor(\App\Models\Role::class)->nullable();
             $table->timestamps();
         });
     }

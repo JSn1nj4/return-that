@@ -48,11 +48,18 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessFilament(): bool
     {
         //return $this->can('admin-application');
-        return true;
+        if ($this->role === null) return false;
+
+        return $this->role->enum() === \App\Enums\Role::SuperAdmin;
     }
 
     public function household(): BelongsTo
     {
         return $this->belongsTo(Household::class);
+    }
+
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
     }
 }

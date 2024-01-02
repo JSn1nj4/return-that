@@ -41,6 +41,8 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('household.nickname')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('role.name')
+                    ->formatStateUsing(fn (string $state): string => \App\Enums\Role::from($state)->label()),
             ])
             ->filters([
                 //

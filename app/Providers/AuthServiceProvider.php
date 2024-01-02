@@ -23,7 +23,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('admin-application', function (User $user) {
+        Gate::define(Permission::AdminApplication->value, static function (User $user) {
             if ($user->role === null) return false;
 
             return $user->role->enum()->can(Permission::AdminApplication);

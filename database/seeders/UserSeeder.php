@@ -53,8 +53,13 @@ class UserSeeder extends Seeder
 
         $this->maybeCreateSuperAdmin();
 
-        User::factory(10)
+        $users = User::factory(10)
             ->recycle(Household::factory(3)->create())
             ->create();
+
+        $this->call(
+            class: UserItemSeeder::class,
+            parameters: ['dependencies' => compact('users')],
+        );
     }
 }

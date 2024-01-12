@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 /**
  * App\Models\Household
@@ -34,5 +35,10 @@ class Household extends Model
     public function users(): HasMany
     {
         return $this->hasMany(User::class);
+    }
+
+    public function userItems(): HasManyThrough
+    {
+        return $this->hasManyThrough(UserItem::class, User::class);
     }
 }

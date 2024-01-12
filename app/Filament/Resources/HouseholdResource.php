@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\HouseholdResource\Pages;
+use App\Filament\Resources\HouseholdResource\RelationManagers\UserItemsRelationManager;
 use App\Filament\Resources\HouseholdResource\RelationManagers\UsersRelationManager;
 use App\Models\Household;
 use Filament\Forms\Components\TextInput;
@@ -49,6 +50,7 @@ class HouseholdResource extends Resource
     {
         return [
             UsersRelationManager::class,
+            UserItemsRelationManager::class,
         ];
     }
 

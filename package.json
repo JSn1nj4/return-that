@@ -17,6 +17,7 @@
         "postcss-mixins": "^9.0.4",
         "postcss-nested": "^6.0.1",
         "postcss-simple-vars": "^7.0.1",
+        "prettier": "3.2.1",
         "tailwindcss": "^3.3.2",
         "tippy.js": "^6.3.7",
         "ts-node": "^10.9.1",

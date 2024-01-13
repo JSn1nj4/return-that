@@ -7,6 +7,7 @@
 - [#3][is_3]: Base user/auth setup
 - [#10][pr_10]: Install Octane with FrankenPHP
 - [#14][pr_14]: Configure users, households, roles, base perms ([#2][is_2])
+- [#15][pr_15]: Upgrade deps and fix theming issue ([#11][is_11])
 
 [is_1]: https://github.com/JSn1nj4/return-that/issues/1
 [is_4]: https://github.com/JSn1nj4/return-that/issues/4
@@ -14,3 +15,5 @@
 [pr_10]: https://github.com/JSn1nj4/return-that/pull/10
 [is_2]: https://github.com/JSn1nj4/return-that/issues/2
 [pr_14]: https://github.com/JSn1nj4/return-that/pull/14
+[is_11]: https://github.com/JSn1nj4/return-that/issues/11
+[pr_15]: https://github.com/JSn1nj4/return-that/pull/15

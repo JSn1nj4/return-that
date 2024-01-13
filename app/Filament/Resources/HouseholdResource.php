@@ -7,9 +7,9 @@ use App\Filament\Resources\HouseholdResource\RelationManagers\ItemsRelationManag
 use App\Filament\Resources\HouseholdResource\RelationManagers\UsersRelationManager;
 use App\Models\Household;
 use Filament\Forms\Components\TextInput;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use Filament\Tables\Table;
 use Filament\Tables;
 
 class HouseholdResource extends Resource

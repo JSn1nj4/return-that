@@ -3,21 +3,19 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\Resources\UserResource\RelationManagers\ItemsRelationManager;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class UserResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static string|null $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static string|null $navigationIcon = 'heroicon-o-users';
 
     public static function form(Form $form): Form
     {
@@ -25,7 +23,11 @@ class UserResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name'),
                 Forms\Components\TextInput::make('email'),
-                // todo: change password
+                Forms\Components\TextInput::make('password')
+                    ->password()
+                    ->dehydrateStateUsing(static fn (string $state): string => $state)
+                    ->dehydrated(static fn (string|null $state): bool => filled($state))
+                    ->required(static fn (string|null $operation = null): bool => $operation === 'create'),
             ]);
     }
 
@@ -38,7 +40,10 @@ class UserResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                // todo: household
+                Tables\Columns\TextColumn::make('household.nickname')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('role.name')
+                    ->formatStateUsing(fn (string $state): string => \App\Enums\Role::from($state)->label()),
             ])
             ->filters([
                 //
@@ -54,7 +59,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ItemsRelationManager::class,
         ];
     }
 

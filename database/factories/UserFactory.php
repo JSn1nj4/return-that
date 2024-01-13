@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Household;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -23,7 +25,15 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'household_id' => Household::factory(),
+            // todo: is there a more efficient way to enforce this?
+            'role_id' => $this->role(\App\Enums\Role::Unassigned)->id,
         ];
+    }
+
+    private function role(\App\Enums\Role $enum): Role
+    {
+        return Role::where('name', $enum->value)->first();
     }
 
     /**

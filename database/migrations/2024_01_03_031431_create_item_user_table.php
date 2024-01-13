@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_items', function (Blueprint $table) {
+        Schema::create('item_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class);
             $table->foreignIdFor(\App\Models\Item::class);
+            $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_items');
+        Schema::dropIfExists('item_user');
     }
 };

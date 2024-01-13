@@ -1,26 +1,28 @@
 <?php
 
-namespace App\Filament\Resources\HouseholdResource\RelationManagers;
+namespace App\Filament\Resources\ItemResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class UserItemsRelationManager extends RelationManager
+class UserRelationManager extends RelationManager
 {
-    protected static string $relationship = 'userItems';
+    protected static string $relationship = 'users';
 
-    protected static string|null $recordTitleAttribute = 'item.name';
+    protected static string|null $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('item.name')
+                Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -30,8 +32,7 @@ class UserItemsRelationManager extends RelationManager
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('item.name'),
-                Tables\Columns\TextColumn::make('user.name')->label('Owner'),
+                Tables\Columns\TextColumn::make('name'),
             ])
             ->filters([
                 //

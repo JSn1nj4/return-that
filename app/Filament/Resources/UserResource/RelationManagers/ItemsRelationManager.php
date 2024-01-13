@@ -10,7 +10,7 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class UserItemsRelationManager extends RelationManager
+class ItemsRelationManager extends RelationManager
 {
     protected static string $relationship = 'items';
 
@@ -20,7 +20,7 @@ class UserItemsRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('item.name')
+                Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -30,7 +30,7 @@ class UserItemsRelationManager extends RelationManager
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('item.name'),
+                Tables\Columns\TextColumn::make('name'),
             ])
             ->filters([
                 //

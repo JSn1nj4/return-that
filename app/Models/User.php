@@ -7,6 +7,7 @@ use App\Enums\Permission;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -92,9 +93,9 @@ class User extends Authenticatable implements FilamentUser
         return $this->belongsTo(Household::class);
     }
 
-    public function items(): HasMany
+    public function items(): BelongsToMany
     {
-        return $this->hasMany(UserItem::class);
+        return $this->belongsToMany(Item::class);
     }
 
     public function role(): BelongsTo

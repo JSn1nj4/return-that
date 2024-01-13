@@ -58,7 +58,7 @@ class UserSeeder extends Seeder
             ->create();
 
         $this->call(
-            class: UserItemSeeder::class,
+            class: ItemSeeder::class,
             parameters: ['dependencies' => compact('users')],
         );
     }
